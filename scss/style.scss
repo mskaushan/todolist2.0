@@ -1,0 +1,123 @@
+// === Variables ===
+$screen-sm-min: 360px;
+
+$screen-xs-max: 359px;
+
+$color-background: #212F3D;
+$color-background-2: #34495E;
+$color-primary: #A8E4A0;
+$color-primary-pale: #79c86f;
+
+$color-text-primary: #fff;
+
+.body {
+    margin: 0px;
+    font-family: sans-serif;
+    background-color: $color-background;
+    .main {
+        display: flex;
+        justify-content: center;
+        .todo {
+            margin: 20px 0px 20px 0px;
+            .header {
+                background-color: $color-background-2;
+                border-radius: 4px;
+                @media screen and (max-width: $screen-xs-max) {
+                    width: 316px; // адаптив
+                }
+                @media screen and (min-width: $screen-sm-min) {
+                    width: 360px; // адаптив
+                }
+                .header-h {
+                    h2 {
+                        margin: 0px;
+                        padding: 10px;
+                        text-align: center;
+                        font-weight: 300;
+                        color: $color-text-primary;
+                    }
+                }
+                .header-window {
+                    display: flex;
+                    justify-content: space-evenly;
+                    padding-bottom: 10px;
+                    .input-text {
+                        height: 32px;
+                        font-size: 18px;
+                        outline: none;
+                        background-color: $color-background;
+                        border: solid 0px $color-background;
+                        border-radius: 4px;
+                        color: $color-text-primary;
+                        padding: 0px 0px 0px 4px;
+                        @media screen and (max-width: $screen-xs-max) {
+                            width: 216px;
+                        }
+                        @media screen and (min-width: $screen-sm-min) {
+                            width: 256px; // адаптив
+                        }
+                    }
+                    .input-button {
+                        height: 32px;
+                        background-color: $color-primary;
+                        border-radius: 4px;
+                        border: solid 0px;
+                        color: $color-background;
+                        padding: 0px;
+                        width: 60px; // адаптив
+                    }
+                    .input-button:hover {
+                        background-color: $color-primary-pale;
+                        transition: .1s;
+                    }
+                }
+            }
+            .items {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                @media screen and (max-width: $screen-xs-max) {
+                    width: 316px;
+                }
+                @media screen and (min-width: $screen-sm-min) {
+                    width: 360px; // адаптив
+                }
+                .item {
+                    min-height: 40px;
+                    border-bottom: 2px $color-primary solid;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    color: $color-text-primary;
+                    padding: 5px 0px 5px 0px;
+                    @media screen and (max-width: $screen-xs-max) {
+                        width: 312px;
+                    }
+                    @media screen and (min-width: $screen-sm-min) {
+                        width: 352px; // адаптив
+                    }
+                    .itemP {
+                        p {
+                            margin: 0px;
+                            @media screen and (max-width: $screen-xs-max) {
+                                width: 290px;
+                            }
+                            @media screen and (min-width: $screen-sm-min) {
+                                width: 330px; // адаптив
+                            }
+                        }
+                    }
+                    .itemImg {
+                        a {
+                            color: grey;
+                            transition: .1s;
+                        }
+                        a:hover {
+                            color: rgb(171, 52, 52);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
