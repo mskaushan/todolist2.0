@@ -68,14 +68,6 @@ function onPageLoaded() {
             for (let elem of listFromLocalStorage.list.reverse()) {
                 render(elem);
             }
-
-
-
-            // let listFromLocalStorage = localStorage.getItem('list').split(',').reverse();
-            // console.log(listFromLocalStorage);
-            // for (let elem of listFromLocalStorage) {
-            //     render(elem);
-            // }
         }
     }
     getList();
