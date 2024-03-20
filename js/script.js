@@ -62,6 +62,16 @@ function onPageLoaded() {
         localStorage.setItem('list', list);
     }
 
+    const getList = () => {
+        if (localStorage.getItem('list')) {
+            let listFromLocalStorage = localStorage.getItem('list').split(',').reverse();
+            for (let elem of listFromLocalStorage) {
+                render(elem);
+            }
+        }
+    }
+    getList();
+    
     (function() {
         input.addEventListener('keydown', function(e) {
             if (e.keyCode === 13) {
@@ -73,16 +83,7 @@ function onPageLoaded() {
     const clearInput = () => {
         input.value = '';
     }
-
-    const getList = () => {
-        if (localStorage.getItem('list')) {
-            let listFromLocalStorage = localStorage.getItem('list').split(',').reverse();
-            for (let elem of listFromLocalStorage) {
-                render(elem);
-            }
-        }
-    }
-    getList();
+    
     add.addEventListener('click', addItem);
 }
 document.addEventListener('DOMContentLoaded', onPageLoaded);
