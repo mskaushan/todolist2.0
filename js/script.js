@@ -57,17 +57,25 @@ function onPageLoaded() {
         let p = items.querySelectorAll('.p');
         list = [];
         for (let elem of p) {
-            list.push(elem.innerHTML); 
+            list.push(elem.innerHTML);
         }
-        localStorage.setItem('list', list);
+        localStorage.toDoList = JSON.stringify({list: list});
     }
 
     const getList = () => {
-        if (localStorage.getItem('list')) {
-            let listFromLocalStorage = localStorage.getItem('list').split(',').reverse();
-            for (let elem of listFromLocalStorage) {
+        if (localStorage.getItem('toDoList')) {
+            let listFromLocalStorage = JSON.parse(localStorage.toDoList);
+            for (let elem of listFromLocalStorage.list.reverse()) {
                 render(elem);
             }
+
+
+
+            // let listFromLocalStorage = localStorage.getItem('list').split(',').reverse();
+            // console.log(listFromLocalStorage);
+            // for (let elem of listFromLocalStorage) {
+            //     render(elem);
+            // }
         }
     }
     getList();
@@ -83,7 +91,7 @@ function onPageLoaded() {
     const clearInput = () => {
         input.value = '';
     }
-    
+
     add.addEventListener('click', addItem);
 }
 document.addEventListener('DOMContentLoaded', onPageLoaded);
