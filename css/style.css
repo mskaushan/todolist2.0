@@ -64,6 +64,7 @@
   color: #212F3D;
   padding: 0px;
   width: 60px;
+  font-size: large;
 }
 .body .main .todo .header .header-window .input-button:hover {
   background-color: #79c86f;

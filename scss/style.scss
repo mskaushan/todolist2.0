@@ -23,10 +23,10 @@ $color-text-primary: #fff;
                 background-color: $color-background-2;
                 border-radius: 4px;
                 @media screen and (max-width: $screen-xs-max) {
-                    width: 316px; // адаптив
+                    width: 316px;
                 }
                 @media screen and (min-width: $screen-sm-min) {
-                    width: 360px; // адаптив
+                    width: 360px;
                 }
                 .header-h {
                     h2 {
@@ -54,7 +54,7 @@ $color-text-primary: #fff;
                             width: 216px;
                         }
                         @media screen and (min-width: $screen-sm-min) {
-                            width: 256px; // адаптив
+                            width: 256px;
                         }
                     }
                     .input-button {
@@ -64,7 +64,8 @@ $color-text-primary: #fff;
                         border: solid 0px;
                         color: $color-background;
                         padding: 0px;
-                        width: 60px; // адаптив
+                        width: 60px;
+                        font-size: large;
                     }
                     .input-button:hover {
                         background-color: $color-primary-pale;
@@ -80,7 +81,7 @@ $color-text-primary: #fff;
                     width: 316px;
                 }
                 @media screen and (min-width: $screen-sm-min) {
-                    width: 360px; // адаптив
+                    width: 360px;
                 }
                 .item {
                     min-height: 40px;
@@ -94,7 +95,7 @@ $color-text-primary: #fff;
                         width: 312px;
                     }
                     @media screen and (min-width: $screen-sm-min) {
-                        width: 352px; // адаптив
+                        width: 352px;
                     }
                     .itemP {
                         p {
@@ -103,7 +104,7 @@ $color-text-primary: #fff;
                                 width: 290px;
                             }
                             @media screen and (min-width: $screen-sm-min) {
-                                width: 330px; // адаптив
+                                width: 330px;
                             }
                         }
                     }
