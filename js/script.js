@@ -39,7 +39,7 @@ function onPageLoaded() {
     }
 
     const deleteList = () => {
-        items.addEventListener('click', function(e) {
+        items.addEventListener('click', (e) => {
             let a = e.target.closest('a');
             if (!a) {
                 return;
@@ -72,8 +72,8 @@ function onPageLoaded() {
     }
     getList();
     
-    (function() {
-        input.addEventListener('keydown', function(e) {
+    (() => {
+        input.addEventListener('keydown', (e) => {
             if (e.keyCode === 13) {
                 addItem();
             }
