@@ -5,14 +5,18 @@ function onPageLoaded() {
     const add = document.querySelector('.input-button');
     const items = document.querySelector('.items');
     let list = [];
+    let changeButton = true;
+    let index = null;
     
     const addItem = () => {
         if (input.value == '') {
             return false;
-        } else {
+        } else if (changeButton === true) {
             render(input.value);
             clearInput();
-        } 
+        } else if (changeButton === false) {
+            editItem();
+        }
     }
 
     const render = (elem) => {
@@ -22,6 +26,7 @@ function onPageLoaded() {
         itemP.classList.add('itemP');
         const p = document.createElement('p');
         p.classList.add('p');
+        const itemEdit = document.createElement('button');
         const itemImg = document.createElement('div');
         itemImg.classList.add('itemImg');
         const a = document.createElement('a');
@@ -29,7 +34,7 @@ function onPageLoaded() {
         a.href = '##';
         const icon = document.createElement('i');
         icon.classList.add('fa', 'fa-trash-o');
-        item.append(itemP, itemImg);
+        item.append(itemP, itemEdit, itemImg);
         itemP.append(p);
         itemImg.append(a);
         a.append(icon);
@@ -38,20 +43,23 @@ function onPageLoaded() {
         saveList();
     }
 
-    const deleteList = () => {
+    const changeList = () => {
         items.addEventListener('click', (e) => {
             let a = e.target.closest('a');
-            if (!a) {
-                return;
-            } else if (!items.contains(a)) {
-                return;
-            } else {
+            let b = e.target.closest('button');
+    
+            if (a && changeButton) {
                 a.parentElement.parentElement.remove();
                 saveList();
-            }   
+            } else if (b) {
+                let itemFromList = b.parentElement.firstChild.firstChild.innerHTML;
+                input.value = itemFromList;
+                changeButton = false;
+                index = list.indexOf(itemFromList);
+            }
         });
-    }    
-    deleteList();
+    }   
+    changeList();
 
     const saveList = () => {
         let p = items.querySelectorAll('.p');
@@ -61,6 +69,17 @@ function onPageLoaded() {
         }
         localStorage.toDoList = JSON.stringify({list: list});
     }
+
+    const editItem = () => {
+        list[index] = input.value;
+        items.replaceChildren();
+        for (let elem of list.reverse()) {
+            render(elem);
+        }
+        changeButton = true;
+        index = null;
+        clearInput();
+    };
 
     const getList = () => {
         if (localStorage.getItem('toDoList')) {
