@@ -58,13 +58,14 @@ function onPageLoaded() {
     const changeList = () => {
         items.addEventListener('click', (e) => {
             let a = e.target.closest('.a');
-            let b = e.target.closest('.aEdit'); // поменять
+            let b = e.target.closest('.aEdit');
             if (a && changeButton) {
                 a.parentElement.parentElement.remove();
                 saveList();
             } else if (b) {
                 let itemFromList = b.parentElement.parentElement.firstChild.firstChild.innerHTML;
                 input.value = itemFromList;
+                input.focus();
                 changeButton = false;
                 index = list.indexOf(itemFromList);
             }
