@@ -101,14 +101,23 @@ $color-text-primary: #fff;
                         p {
                             margin: 0px;
                             @media screen and (max-width: $screen-xs-max) {
-                                width: 290px;
+                                width: 260px;
                             }
                             @media screen and (min-width: $screen-sm-min) {
-                                width: 330px;
+                                width: 300px;
                             }
                         }
                     }
-                    .itemImg {
+                    .itemEdit {
+                        a {
+                            color: grey;
+                            transition: .1s;
+                        }
+                        a:hover {
+                            color: rgb(171, 52, 52);
+                        }
+                    }
+                    .itemBasket {
                         a {
                             color: grey;
                             transition: .1s;

@@ -109,18 +109,25 @@
 }
 @media screen and (max-width: 359px) {
   .body .main .todo .items .item .itemP p {
-    width: 290px;
+    width: 260px;
   }
 }
 @media screen and (min-width: 360px) {
   .body .main .todo .items .item .itemP p {
-    width: 330px;
+    width: 300px;
   }
 }
-.body .main .todo .items .item .itemImg a {
+.body .main .todo .items .item .itemEdit a {
   color: grey;
   transition: 0.1s;
 }
-.body .main .todo .items .item .itemImg a:hover {
+.body .main .todo .items .item .itemEdit a:hover {
+  color: rgb(171, 52, 52);
+}
+.body .main .todo .items .item .itemBasket a {
+  color: grey;
+  transition: 0.1s;
+}
+.body .main .todo .items .item .itemBasket a:hover {
   color: rgb(171, 52, 52);
 }

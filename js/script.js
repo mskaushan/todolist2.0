@@ -26,17 +26,29 @@ function onPageLoaded() {
         itemP.classList.add('itemP');
         const p = document.createElement('p');
         p.classList.add('p');
-        const itemEdit = document.createElement('button');
-        const itemImg = document.createElement('div');
-        itemImg.classList.add('itemImg');
+
+        const itemEdit = document.createElement('div');
+        itemEdit.classList.add('itemEdit');
+        const aEdit = document.createElement('a');
+        aEdit.classList.add('aEdit');
+        aEdit.href = '##';
+        const iconEdit = document.createElement('i');
+        iconEdit.classList.add('fa-solid');
+        iconEdit.classList.add('fa-pen');
+
+        const itemBasket = document.createElement('div');
+        itemBasket.classList.add('itemBasket');
         const a = document.createElement('a');
         a.classList.add('a');
         a.href = '##';
         const icon = document.createElement('i');
-        icon.classList.add('fa', 'fa-trash-o');
-        item.append(itemP, itemEdit, itemImg);
+        icon.classList.add('fa-regular');
+        icon.classList.add('fa-trash-can');
+        item.append(itemP, itemEdit, itemBasket);
         itemP.append(p);
-        itemImg.append(a);
+        itemEdit.append(aEdit);
+        itemBasket.append(a);
+        aEdit.append(iconEdit);
         a.append(icon);
         p.append(elem);
         items.prepend(item);
@@ -45,14 +57,13 @@ function onPageLoaded() {
 
     const changeList = () => {
         items.addEventListener('click', (e) => {
-            let a = e.target.closest('a');
-            let b = e.target.closest('button');
-    
+            let a = e.target.closest('.a');
+            let b = e.target.closest('.aEdit'); // поменять
             if (a && changeButton) {
                 a.parentElement.parentElement.remove();
                 saveList();
             } else if (b) {
-                let itemFromList = b.parentElement.firstChild.firstChild.innerHTML;
+                let itemFromList = b.parentElement.parentElement.firstChild.firstChild.innerHTML;
                 input.value = itemFromList;
                 changeButton = false;
                 index = list.indexOf(itemFromList);
