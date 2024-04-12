@@ -20,39 +20,25 @@ function onPageLoaded() {
     }
 
     const render = (elem) => {
-        const item = document.createElement('div');
+        const item = document.createElement('li');
         item.classList.add('item');
-        const itemP = document.createElement('div');
-        itemP.classList.add('itemP');
-        const p = document.createElement('p');
-        p.classList.add('p');
-
-        const itemEdit = document.createElement('div');
-        itemEdit.classList.add('itemEdit');
-        const aEdit = document.createElement('a');
-        aEdit.classList.add('aEdit');
-        aEdit.href = '##';
+        const itemText = document.createElement('p');
+        itemText.classList.add('item__text');
+        const itemEdit = document.createElement('a');
+        itemEdit.classList.add('item__edit');
+        itemEdit.href = '##';
         const iconEdit = document.createElement('i');
-        iconEdit.classList.add('fa-solid');
-        iconEdit.classList.add('fa-pen');
-
-        const itemBasket = document.createElement('div');
-        itemBasket.classList.add('itemBasket');
-        const a = document.createElement('a');
-        a.classList.add('a');
-        a.href = '##';
-        const icon = document.createElement('i');
-        icon.classList.add('fa-regular');
-        icon.classList.add('fa-trash-can');
-        item.append(itemP, itemEdit, itemBasket);
-        itemP.append(p);
-        itemEdit.append(aEdit);
-        itemBasket.append(a);
-        aEdit.append(iconEdit);
-        a.append(icon);
-        p.append(elem);
+        iconEdit.classList.add('fa-solid', 'fa-pen');
+        const itemDelete = document.createElement('a');
+        itemDelete.classList.add('item__delete');
+        itemDelete.href = '##';
+        const iconDelete = document.createElement('i');
+        iconDelete.classList.add('fa-regular', 'fa-trash-can');
+        item.append(itemText, itemEdit, itemDelete);
+        itemEdit.append(iconEdit);
+        itemDelete.append(iconDelete);
         items.prepend(item);
-        saveList();
+        itemText.textContent = elem;
     }
 
     const changeList = () => {
