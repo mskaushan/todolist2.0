@@ -1,24 +1,22 @@
 'use strict';
-
 function onPageLoaded() {
-    const input = document.querySelector('.input-text');
-    const add = document.querySelector('.input-button');
+    const inputWindow = document.querySelector('.input__window');
+    const inputAdd = document.querySelector('.input__add');
     const items = document.querySelector('.items');
     let list = [];
     let changeButton = true;
     let index = null;
     
     const addItem = () => {
-        if (input.value == '') {
+        if (inputWindow.value == '') {
             return false;
         } else if (changeButton === true) {
-            render(input.value);
+            render(inputWindow.value);
             clearInput();
         } else if (changeButton === false) {
             editItem();
         }
     }
-
     const render = (elem) => {
         const item = document.createElement('li');
         item.classList.add('item');
@@ -40,20 +38,17 @@ function onPageLoaded() {
         items.prepend(item);
         itemText.textContent = elem;
     }
-
     const changeList = () => {
         items.addEventListener('click', (e) => {
-            let a = e.target.closest('.a');
-            let b = e.target.closest('.aEdit');
-            if (a && changeButton) {
-                a.parentElement.parentElement.remove();
-                saveList();
-            } else if (b) {
+            if (e.target.parentElement.className == 'item__edit') {
                 let itemFromList = b.parentElement.parentElement.firstChild.firstChild.innerHTML;
                 input.value = itemFromList;
                 input.focus();
                 changeButton = false;
                 index = list.indexOf(itemFromList);
+            } else if (e.target.parentElement.className == 'item__delete' && changeButton) {
+                a.parentElement.parentElement.remove();
+                saveList();
             }
         });
     }   
@@ -101,6 +96,6 @@ function onPageLoaded() {
         input.value = '';
     }
 
-    add.addEventListener('click', addItem);
+    inputAdd.addEventListener('click', addItem);
 }
 document.addEventListener('DOMContentLoaded', onPageLoaded);
