@@ -37,17 +37,18 @@ function onPageLoaded() {
         itemDelete.append(iconDelete);
         items.prepend(item);
         itemText.textContent = elem;
+        saveList();
     }
     const changeList = () => {
         items.addEventListener('click', (e) => {
             if (e.target.parentElement.className == 'item__edit') {
-                let itemFromList = b.parentElement.parentElement.firstChild.firstChild.innerHTML;
-                input.value = itemFromList;
-                input.focus();
+                let itemFromList = e.target.parentElement.parentElement.firstChild.textContent;
+                inputWindow.value = itemFromList;
+                inputWindow.focus();
                 changeButton = false;
                 index = list.indexOf(itemFromList);
             } else if (e.target.parentElement.className == 'item__delete' && changeButton) {
-                a.parentElement.parentElement.remove();
+                e.target.parentElement.parentElement.remove();
                 saveList();
             }
         });
@@ -55,16 +56,16 @@ function onPageLoaded() {
     changeList();
 
     const saveList = () => {
-        let p = items.querySelectorAll('.p');
+        let p = items.querySelectorAll('.item__text');
         list = [];
         for (let elem of p) {
-            list.push(elem.innerHTML);
+            list.push(elem.textContent);
         }
         localStorage.toDoList = JSON.stringify({list: list});
     }
 
     const editItem = () => {
-        list[index] = input.value;
+        list[index] = inputWindow.value;
         items.replaceChildren();
         for (let elem of list.reverse()) {
             render(elem);
@@ -85,7 +86,7 @@ function onPageLoaded() {
     getList();
     
     (() => {
-        input.addEventListener('keydown', (e) => {
+        inputWindow.addEventListener('keydown', (e) => {
             if (e.keyCode === 13) {
                 addItem();
             }
@@ -93,7 +94,7 @@ function onPageLoaded() {
     })();
 
     const clearInput = () => {
-        input.value = '';
+        inputWindow.value = '';
     }
 
     inputAdd.addEventListener('click', addItem);
