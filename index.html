@@ -3,27 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do list</title>
+    <title>To do list 2.0</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script defer src="js/script.js"></script>
+    <script defer src="https://kit.fontawesome.com/cd34b5a86e.js" crossorigin="anonymous"></script>
 </head>
 <body class="body">
-    <main class="main">
-        <div class="todo">
-            <div class="header">
-                <div class="header-h">
-                    <h2>
-                        Список дел 2.0
-                    </h2>
-                </div>
-                <div class="header-window">
-                    <input class="input-text" type="text" placeholder="Введите пункт">
-                    <input class="input-button" type="button" value="+">
-                </div>
+   <div class="toDo">
+        <div class="header">
+            <h2 class="heading">Список дел 2.0</h2>
+            <div class="input">
+                <input class="input__window" type="text" placeholder="Введите пункт">
+                <button class="input__add" type="button">+</button>
             </div>
-            <div class="items"></div>
         </div>
-    </main>
-    <script src="js/script.js"></script>
-    <script src="https://kit.fontawesome.com/cd34b5a86e.js" crossorigin="anonymous"></script>
+        <ul class="items"></ul>
+   </div>
 </body>
 </html>
