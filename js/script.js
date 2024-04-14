@@ -54,7 +54,6 @@ function onPageLoaded() {
         });
     }   
     changeList();
-
     const saveList = () => {
         let p = items.querySelectorAll('.item__text');
         list = [];
@@ -63,7 +62,6 @@ function onPageLoaded() {
         }
         localStorage.toDoList = JSON.stringify({list: list});
     }
-
     const editItem = () => {
         list[index] = inputWindow.value;
         items.replaceChildren();
@@ -74,7 +72,6 @@ function onPageLoaded() {
         index = null;
         clearInput();
     };
-
     const getList = () => {
         if (localStorage.getItem('toDoList')) {
             let listFromLocalStorage = JSON.parse(localStorage.toDoList);
@@ -84,7 +81,6 @@ function onPageLoaded() {
         }
     }
     getList();
-    
     (() => {
         inputWindow.addEventListener('keydown', (e) => {
             if (e.keyCode === 13) {
@@ -92,11 +88,9 @@ function onPageLoaded() {
             }
         });
     })();
-
     const clearInput = () => {
         inputWindow.value = '';
     }
-
     inputAdd.addEventListener('click', addItem);
 }
 document.addEventListener('DOMContentLoaded', onPageLoaded);
